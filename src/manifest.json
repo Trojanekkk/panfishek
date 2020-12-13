@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "__MSG_extName__",
-  "homepage_url": "http://localhost:8080/",
-  "description": "A Vue Browser Extension",
+  "name": "panfishek",
+  "homepage_url": "panfishek.pl",
+  "description": "Browser extension helping people to learn a foreign language during surfing on the Internet.",
   "default_locale": "en",
   "permissions": [
     "<all_urls>",
@@ -21,7 +21,7 @@
   },
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "__MSG_extName__",
+    "default_title": "panfishek",
     "default_icon": {
       "19": "icons/19.png",
       "38": "icons/38.png"
