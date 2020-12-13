@@ -12,7 +12,7 @@ npm install
 
 ### Change path to dist directory in the .env file
 ```
-VUE_APP_DIST_PATH=<your path>
+VUE_APP_DIST_PATH=<your path to the dist directory>
 ```
 
 ### Compiles and minifies for production
@@ -25,6 +25,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Usage
 
+  1. Update ```VUE_APP_DIST_PATH``` variable
   1. Build the project
   2. Go to **extensions** tab in your browser
   3. Enable **developer mode**
