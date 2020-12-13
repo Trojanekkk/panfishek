@@ -1,5 +1,5 @@
 module.exports = {
-  outputDir: process.env.VUE_APP_DIST_PATH,
+  outputDir: process.env.VUE_APP_DIST_PATH ? process.env.VUE_APP_DIST_PATH : 'dist',
   pages: {
     popup: {
       template: 'public/browser-extension.html',
