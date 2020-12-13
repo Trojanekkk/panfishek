@@ -10,7 +10,10 @@
 npm install
 ```
 
-### Change VUE_APP_DIST_PATH in the .env file to proper for you path
+### Change path to dist directory in the .env file
+```
+VUE_APP_DIST_PATH=<your path>
+```
 
 ### Compiles and minifies for production
 ```
