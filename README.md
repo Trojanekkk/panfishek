@@ -10,10 +10,7 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Change VUE_APP_DIST_PATH in the .env file to proper for you path
 
 ### Compiles and minifies for production
 ```
