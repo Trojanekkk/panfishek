@@ -13,7 +13,7 @@
                 </b-tab>
                 <b-tab title="All">
                     <b-card-text>
-                        All
+                        <All />
                     </b-card-text>
                 </b-tab>
                 <b-tab title="Panel">
@@ -29,6 +29,7 @@
 <script>
 import Guess from '@/components/Guess.vue'
 import New from '@/components/New.vue'
+import All from '@/components/All.vue'
 import Panel from '@/components/Panel.vue'
 
 export default {
@@ -36,6 +37,7 @@ export default {
     components: { 
         Guess,
         New,
+        All,
         Panel
     }
 }
@@ -44,5 +46,9 @@ export default {
 <style>
 html {
     min-width: 300px;
+}
+
+#main {
+    padding-bottom: 1rem;
 }
 </style>

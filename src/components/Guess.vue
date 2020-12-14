@@ -1,6 +1,6 @@
 <template>
     <div id="guess">
-        <p>Word: <b>{{ word }}</b><b-icon icon="x-circle" class="float-right" font-scale="0.5" shift-v="-8"></b-icon></p>
+        <p>Word: <b>{{ word }}</b><b-icon icon="x-circle" class="float-right" font-scale="0.5" shift-v="-16"></b-icon></p>
         <p>
             <b-form-input v-model="guess" placeholder="Enter translation"></b-form-input>
         </p>

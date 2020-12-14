@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "panfishek",
-  "homepage_url": "panfishek.pl",
+  "homepage_url": "https://panfishek.pl",
   "description": "Browser extension helping people to learn a foreign language during surfing on the Internet.",
   "default_locale": "en",
   "permissions": [

@@ -11,8 +11,7 @@
         <p>
             <b-button-toolbar class="float-right">
                 <b-button-group class="mr-1">
-                    <b-button variant="outline-primary">Cancel</b-button>
-                    <b-button variant="outline-primary">Add</b-button>
+                    <b-button variant="outline-primary" @click="addItem">Add</b-button>
                 </b-button-group>
             </b-button-toolbar>
         </p>
@@ -25,7 +24,24 @@ export default {
     data () {
         return {
             word: '',
-            translation: ''
+            translation: '',
+            flashcards: []
+        }
+    },
+    methods: {
+        addItem: function () {
+            if (localStorage.getItem('panfishek'))
+                this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
+
+            if (this.translation && this.word) {
+                this.flashcards.push({
+                    'word': this.word,
+                    'translation': this.translation
+                })
+                localStorage.setItem("panfishek", JSON.stringify(this.flashcards))
+            }
+            this.word = ''
+            this.translation = ''
         }
     }
 }
