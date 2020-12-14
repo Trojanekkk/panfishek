@@ -11,9 +11,9 @@
                         <New />
                     </b-card-text>
                 </b-tab>
-                <b-tab title="All">
+                <b-tab title="All" @click="getItems">
                     <b-card-text>
-                        <All />
+                        <All :flashcards="flashcards"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="Panel">
@@ -39,8 +39,19 @@ export default {
         New,
         All,
         Panel
+    },
+    data () {
+        return {
+            flashcards: []
+        }
+    },
+    methods: {
+        getItems: function () {
+            this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
+        }
     }
 }
+
 </script>
 
 <style>

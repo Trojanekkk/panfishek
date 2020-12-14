@@ -1,11 +1,13 @@
 <template>
-    <div id="new">
-        <p>
-            <b-button-toolbar class="float-right">
-                <b-button-group class="mr-1">
-                    <b-button variant="outline-primary" @click="getItem">View</b-button>
-                </b-button-group>
-            </b-button-toolbar>
+    <div id="all">
+        <p v-for="fc in flashcards" v-bind:key="fc.word">
+            <b>{{ fc.word }}</b> <span class="stats" title="fishka's stats (correct / all)">0/3</span>
+            <b-icon icon="x-circle" class="float-right" font-scale="0.75" shift-v="-8" title="delete this fishka"></b-icon>
+            <br>
+            <span class="translation">
+                {{ fc.translation }}
+                <b-icon icon="cloud-slash" class="float-right" font-scale="0.75" shift-v="-8" title="the fishka is not synchronized"></b-icon>
+            </span>
         </p>
     </div>
 </template>
@@ -13,27 +15,18 @@
 <script>
 export default {
     name: 'All',
-    data () {
-        return {
-            flashcards: [],
-            fishka: ''
-        }
-    },
-    methods: {
-        getItem: function () {
-            this.flashcards = localStorage.getItem('panfishek')
-            if (this.flashcards) {
-                this.fishka = JSON.parse(this.flashcards)[0].word
-                alert(this.flashcards)
-                alert(this.fishka)
-            }
-        }
-    }
+    props: ['flashcards'],
 }
 </script>
 
 <style scoped>
 p {
-    font-size: 17px;
+    font-size: 15px;
+}
+#all {
+    font-size: 15px;
+}
+.translation {
+    color: lightslategray
 }
 </style>
