@@ -6,7 +6,7 @@
         </p>
         <p>Translation</p>
         <p>
-            <b-form-input v-model="translation" placeholder="Enter translation"></b-form-input>
+            <b-form-input v-model="translation" @keyup.enter="addItem" placeholder="Enter translation"></b-form-input>
         </p>
         <p>
             <b-button-toolbar class="float-right">
@@ -39,9 +39,10 @@ export default {
                     'translation': this.translation
                 })
                 localStorage.setItem("panfishek", JSON.stringify(this.flashcards))
+
+                this.word = ''
+                this.translation = ''
             }
-            this.word = ''
-            this.translation = ''
         }
     }
 }

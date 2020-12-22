@@ -3,7 +3,7 @@
             <b-tabs fill card>
                 <b-tab title="Start">
                     <b-card-text>
-                        <Guess />
+                        <Guess :flashcards="flashcards"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="New">
@@ -49,6 +49,9 @@ export default {
         getItems: function () {
             this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
         }
+    },
+    mounted () {
+        this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
     }
 }
 
