@@ -2,7 +2,7 @@
     <div id="all">
         <p v-for="fc in flashcards" v-bind:key="fc.word">
             <b>{{ fc.word }}</b> <span class="stats" title="fishka's stats (correct / all)">(0/3)</span>
-            <b-icon icon="x-circle" class="float-right" font-scale="0.75" shift-v="-8" title="delete this fishka"></b-icon>
+            <ButtonSwitch @click="$emit('removeItem', 'test')"/>
             <br>
             <span class="translation">
                 {{ fc.translation }}
@@ -13,8 +13,13 @@
 </template>
 
 <script>
+import ButtonSwitch from '@/components/ButtonSwitch.vue'
+
 export default {
     name: 'All',
+    components: {
+        ButtonSwitch
+    },
     props: ['flashcards'],
 }
 </script>
