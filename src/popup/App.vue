@@ -13,7 +13,7 @@
                 </b-tab>
                 <b-tab title="All" @click="getItems">
                     <b-card-text>
-                        <All :flashcards="flashcards" v-on:removeItem="removeItem"/>
+                        <All :flashcards="flashcards" @remove-item="removeItem"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="Panel">
@@ -52,8 +52,9 @@ export default {
         getItems: function () {
             this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
         },
-        removeItem: function (item) {
-            alert(item + 'hi')
+        removeItem: function (index) {
+            this.flashcards.splice(index, 1)
+            localStorage.setItem("panfishek", JSON.stringify(this.flashcards))
         }
     },
     mounted () {

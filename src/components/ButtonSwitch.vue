@@ -1,13 +1,16 @@
 <template>
-    <b-icon 
-        :icon="myIcon" 
-        class="float-right icon" 
-        font-scale="0.75" 
-        shift-v="-8" 
-        title="delete this fishka"
+    <span
         @mouseover="hover = true"
         @mouseout="hover = false"
-    ></b-icon>
+    >
+        <b-icon 
+            :icon="myIcon" 
+            class="float-right icon" 
+            font-scale="0.75" 
+            shift-v="-8" 
+            title="delete this fishka"
+        ></b-icon>
+    </span>
 </template>
 
 <script>

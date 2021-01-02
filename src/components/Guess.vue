@@ -36,7 +36,6 @@ export default {
             this.guess = ''
             this.checkState = null
             this.wordId = Math.floor(Math.random() * this.flashcards.length)
-            alert(this.wordId + 1)
         },
 
         showHint: function () {
@@ -71,9 +70,6 @@ export default {
         selectedCard: function () {
             return this.flashcards[this.wordId]
         }
-    },
-    mounted () {
-        this.selectItem
     }
 }
 </script>

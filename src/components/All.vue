@@ -1,8 +1,8 @@
 <template>
     <div id="all">
-        <p v-for="fc in flashcards" v-bind:key="fc.word">
+        <p v-for="(fc, index) in flashcards" v-bind:key="index">
             <b>{{ fc.word }}</b> <span class="stats" title="fishka's stats (correct / all)">(0/3)</span>
-            <ButtonSwitch @click="$emit('removeItem', 'test')"/>
+            <ButtonSwitch @click.native="$emit('remove-item', index)"/>
             <br>
             <span class="translation">
                 {{ fc.translation }}
@@ -21,6 +21,12 @@ export default {
         ButtonSwitch
     },
     props: ['flashcards'],
+    methods: {
+        myEvent: function () {
+            alert('hi')
+            this.$emit('update-cart')
+        }
+    }
 }
 </script>
 
