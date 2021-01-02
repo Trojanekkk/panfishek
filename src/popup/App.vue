@@ -8,7 +8,7 @@
                 </b-tab>
                 <b-tab title="New">
                     <b-card-text>
-                        <New />
+                        <New :flashcards="flashcards" @add-item="addItem"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="All" @click="getItems">
@@ -42,15 +42,21 @@ export default {
     },
     data () {
         return {
-            flashcards: [{
-                word: '',
-                translation: ''
-            }]
+            flashcards: []
         }
     },
     methods: {
         getItems: function () {
             this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
+        },
+        addItem: function (payload) {
+            if (payload.translation && payload.word) {
+                this.flashcards.push({
+                    'word': payload.word,
+                    'translation': payload.translation
+                })
+                localStorage.setItem("panfishek", JSON.stringify(this.flashcards))
+            }
         },
         removeItem: function (index) {
             this.flashcards.splice(index, 1)
