@@ -2,7 +2,7 @@
     <div id="new">
         <p>Word:</p>
         <p>
-            <b-form-input ref="email" v-model="word" placeholder="Enter new"></b-form-input>
+            <b-form-input ref="wordInput" v-model="word" placeholder="Enter new"></b-form-input>
         </p>
         <p>Translation</p>
         <p>
@@ -32,7 +32,7 @@ export default {
         flashcards: function () {
             this.word = ''
             this.translation = ''
-            this.$refs.email.focus()
+            this.$refs.wordInput.focus()
         }
     }
 }
