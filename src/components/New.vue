@@ -27,9 +27,11 @@ export default {
             translation: ''
         }
     },
-    props: ['flashcards'],
-    watch: {
-        flashcards: function () {
+    methods: {
+        done: function () {
+            alert('here')
+        },
+        addedSuccesfully: function() {
             this.word = ''
             this.translation = ''
             this.$refs.wordInput.focus()

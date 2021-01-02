@@ -3,12 +3,12 @@
             <b-tabs fill card>
                 <b-tab title="Start">
                     <b-card-text>
-                        <Guess :flashcards="flashcards"/>
+                        <Guess ref="guessComponent" :flashcards="flashcards"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="New">
                     <b-card-text>
-                        <New :flashcards="flashcards" @add-item="addItem"/>
+                        <New ref="newComponent" @add-item="addItem"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="All" @click="getItems">
@@ -57,6 +57,7 @@ export default {
                 })
                 localStorage.setItem("panfishek", JSON.stringify(this.flashcards))
             }
+            this.$refs.newComponent.addedSuccesfully()
         },
         removeItem: function (index) {
             this.flashcards.splice(index, 1)
@@ -65,6 +66,9 @@ export default {
     },
     mounted () {
         this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
+    },
+    updated () {
+        this.$refs.guessComponent.selectItem()
     }
 }
 
@@ -79,3 +83,4 @@ html {
     padding-bottom: 1rem;
 }
 </style>
+ 
