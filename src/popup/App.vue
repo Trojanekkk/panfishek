@@ -3,22 +3,22 @@
             <b-tabs fill card>
                 <b-tab title="Start">
                     <b-card-text>
-                        <Guess ref="guessComponent" :flashcards="flashcards"/>
+                        <Guess ref="guessComponent" :flashcards="flashcards" @remove-item="removeItem" v-if="isVisible"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="New">
                     <b-card-text>
-                        <New ref="newComponent" @add-item="addItem"/>
+                        <New ref="newComponent" @add-item="addItem" v-if="isVisible"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="All" @click="getItems">
                     <b-card-text>
-                        <All :flashcards="flashcards" @remove-item="removeItem"/>
+                        <All :flashcards="flashcards" @remove-item="removeItem" v-if="isVisible"/>
                     </b-card-text>
                 </b-tab>
                 <b-tab title="Panel">
                     <b-card-text>
-                        <Panel />
+                        <Panel v-if="isVisible"/>
                     </b-card-text>
                 </b-tab>
             </b-tabs>
@@ -42,7 +42,8 @@ export default {
     },
     data () {
         return {
-            flashcards: []
+            flashcards: [],
+            isVisible: false
         }
     },
     methods: {
@@ -66,6 +67,7 @@ export default {
     },
     mounted () {
         this.flashcards = JSON.parse(localStorage.getItem('panfishek'))
+        this.isVisible = true
     },
     updated () {
         this.$refs.guessComponent.selectItem()

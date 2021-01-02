@@ -2,7 +2,7 @@
     <div id="guess">
         <p>
             Word: <b>{{ selectedCard.word }}</b>
-            <b-icon icon="x-circle" class="float-right" font-scale="0.5" shift-v="-16" title="delete this fishka"></b-icon>
+            <ButtonSwitch @click.native="$emit('remove-item', wordId)"/>
         </p>
         <p>
             <b-form-input v-model="guess" placeholder="Enter translation" :state="checkState"></b-form-input>
@@ -20,9 +20,13 @@
 </template>
 
 <script>
+import ButtonSwitch from '@/components/ButtonSwitch.vue'
 
 export default {
     name: 'Guess',
+    components: {
+        ButtonSwitch
+    },
     data () {
         return {
             guess: '',
